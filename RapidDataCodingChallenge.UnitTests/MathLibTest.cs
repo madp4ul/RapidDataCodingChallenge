@@ -1,7 +1,6 @@
 namespace RapidDataCodingChallenge.UnitTests;
 
 using RapidDataCodingChallenge.MathLibrary;
-using RapidDataCodingChallenge.MathLibrary.Implementation;
 
 [TestFixture(MathAlgorithmPreference.IterativeAlgoritm)]
 [TestFixture(MathAlgorithmPreference.RecursiveAlgorith)]
@@ -48,14 +47,26 @@ public class MathLibTest(MathAlgorithmPreference algorithmPreference)
         Assert.Throws<ArgumentOutOfRangeException>(() => _systemUnderTest.Factorial(n));
     }
 
+    /// <summary>
+    /// <see cref="MathLib.Factorial(int)"/> throws <see cref="ArgumentOutOfRangeException"/> if n is negative number.
+    /// </summary>
+    [Test]
+    public void Factorial_ThrowsArgumentOutOfRangeException_IfNIsNegativeNumber(
+        [Values(-1, -2, -30, int.MinValue)] int n)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => _systemUnderTest.Factorial(n));
+    }
 
     /// <summary>
     /// <see cref="MathLib.UnevenFactorial(int)"/> returns product of all uneven integers from 1 to n.
     /// </summary>
     [Test]
+    [TestCase(0, 1)]
     [TestCase(1, 1)]
+    [TestCase(2, 1)]
     [TestCase(3, 1 * 3)]
     [TestCase(7, 1 * 3 * 5 * 7)]
+    [TestCase(8, 1 * 3 * 5 * 7)]
     [TestCase(33, 6_332_659_870_762_850_625)] // pre-calculated
     public void UnevenFactorial_ReturnsProductOfAllUnevenIntegersFrom1ToN(int n, long expectedResult)
     {
@@ -77,9 +88,20 @@ public class MathLibTest(MathAlgorithmPreference algorithmPreference)
     }
 
     /// <summary>
+    /// <see cref="MathLib.UnevenFactorial(int)"/> throws <see cref="ArgumentOutOfRangeException"/> if n is negative number.
+    /// </summary>
+    [Test]
+    public void UnevenFactorial_ThrowsArgumentOutOfRangeException_IfNIsNegativeNumber(
+        [Values(-1, -2, -30, int.MinValue)] int n)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => _systemUnderTest.UnevenFactorial(n));
+    }
+
+    /// <summary>
     /// <see cref="MathLib.SquareFactorial(int)"/> returns squared product of all integers from 1 to n.
     /// </summary>
     [Test]
+    [TestCase(0, 1)]
     [TestCase(1, 1 * 1)]
     [TestCase(3, 1 * 1 * 2 * 2 * 3 * 3)]
     [TestCase(7, 1 * 1 * 2 * 2 * 3 * 3 * 4 * 4 * 5 * 5 * 6 * 6 * 7 * 7)]
@@ -99,6 +121,16 @@ public class MathLibTest(MathAlgorithmPreference algorithmPreference)
     [Test]
     public void SquareFactorial_ThrowsArgumentOutOfRangeException_IfResultWouldBeTooLargeForLongNumber(
         [Values(13, 14, 40, int.MaxValue)] int n)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => _systemUnderTest.SquareFactorial(n));
+    }
+
+    /// <summary>
+    /// <see cref="MathLib.SquareFactorial(int)"/> throws <see cref="ArgumentOutOfRangeException"/> if n is negative number.
+    /// </summary>
+    [Test]
+    public void SquareFactorial_ThrowsArgumentOutOfRangeException_IfNIsNegativeNumber(
+        [Values(-1, -2, -30, int.MinValue)] int n)
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => _systemUnderTest.SquareFactorial(n));
     }
