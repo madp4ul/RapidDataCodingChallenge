@@ -28,6 +28,7 @@ public class MathLibTest(MathAlgorithmPreference algorithmPreference)
     [TestCase(3, 1 * 2 * 3)]
     [TestCase(7, 1 * 2 * 3 * 4 * 5 * 6 * 7)]
     [TestCase(20, 2_432_902_008_176_640_000)] // pre-calculated
+    [TestCase(IMathLib.MaximumSupportedFactorial, 2_432_902_008_176_640_000)] // pre-calculated
     public void Factorial_ReturnsProductOfAllIntegersFrom1ToN(int n, long expectedResult)
     {
         // Act
@@ -68,6 +69,7 @@ public class MathLibTest(MathAlgorithmPreference algorithmPreference)
     [TestCase(7, 1 * 3 * 5 * 7)]
     [TestCase(8, 1 * 3 * 5 * 7)]
     [TestCase(33, 6_332_659_870_762_850_625)] // pre-calculated
+    [TestCase(IMathLib.MaximumSupportedUnevenFactorial, 6_332_659_870_762_850_625)] // pre-calculated
     public void UnevenFactorial_ReturnsProductOfAllUnevenIntegersFrom1ToN(int n, long expectedResult)
     {
         // Act
@@ -106,6 +108,7 @@ public class MathLibTest(MathAlgorithmPreference algorithmPreference)
     [TestCase(3, 1 * 1 * 2 * 2 * 3 * 3)]
     [TestCase(7, 1 * 1 * 2 * 2 * 3 * 3 * 4 * 4 * 5 * 5 * 6 * 6 * 7 * 7)]
     [TestCase(12, 229_442_532_802_560_000)] // pre-calculated
+    [TestCase(IMathLib.MaximumSupportedSquareFactorial, 229_442_532_802_560_000)] // pre-calculated
     public void SquareFactorial_ReturnsProductOfAllUnevenIntegersFrom1ToN(int n, long expectedResult)
     {
         // Act
