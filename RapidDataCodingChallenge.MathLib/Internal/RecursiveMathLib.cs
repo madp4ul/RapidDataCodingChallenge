@@ -4,7 +4,7 @@ using RapidDataCodingChallenge.MathLibrary.Internal;
 
 internal class RecursiveMathLib : IInternalMathLib
 {
-    public long Factorial(int n)
+    public long Factorial(uint n)
     {
         return n switch
         {
@@ -13,7 +13,7 @@ internal class RecursiveMathLib : IInternalMathLib
         };
     }
 
-    public long UnevenFactorial(int n)
+    public long UnevenFactorial(uint n)
     {
         if (n is 0 or 1)
         {

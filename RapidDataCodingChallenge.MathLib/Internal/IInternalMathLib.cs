@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 internal interface IInternalMathLib
 {
-    long Factorial(int n);
-    long UnevenFactorial(int n);
+    long Factorial(uint n);
+    long UnevenFactorial(uint n);
 }

@@ -24,36 +24,31 @@ public class MathLib : IMathLib
         };
     }
 
-    public long Factorial(int n)
+    public long Factorial(uint n)
     {
-        ThrowIfNegativeOrLargerThanMaximum(n, IMathLib.MaximumSupportedFactorial);
+        ThrowIfLargerThanMaximum(n, IMathLib.MaximumSupportedFactorial);
 
         return _internalMathLib.Factorial(n);
     }
 
-    public long SquareFactorial(int n)
+    public long SquareFactorial(uint n)
     {
-        ThrowIfNegativeOrLargerThanMaximum(n, IMathLib.MaximumSupportedSquareFactorial);
+        ThrowIfLargerThanMaximum(n, IMathLib.MaximumSupportedSquareFactorial);
 
         long factorial = Factorial(n);
 
         return factorial * factorial;
     }
 
-    public long UnevenFactorial(int n)
+    public long UnevenFactorial(uint n)
     {
-        ThrowIfNegativeOrLargerThanMaximum(n, IMathLib.MaximumSupportedUnevenFactorial);
+        ThrowIfLargerThanMaximum(n, IMathLib.MaximumSupportedUnevenFactorial);
 
         return _internalMathLib.UnevenFactorial(n);
     }
 
-    private void ThrowIfNegativeOrLargerThanMaximum(int n, int maximumN)
+    private void ThrowIfLargerThanMaximum(uint n, uint maximumN)
     {
-        if (n < 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(n), "Factorial is not defined for negative numbers.");
-        }
-
         if (n > maximumN)
         {
             throw new ArgumentOutOfRangeException(nameof(n), $"Resulting factorial is larger than maximum for long: {long.MaxValue}. Only inputs up to {maximumN} are supported.");
