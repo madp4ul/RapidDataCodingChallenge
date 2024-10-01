@@ -1,14 +1,7 @@
-﻿using RapidDataCodingChallenge.MathLibrary.Implementation;
-
-namespace RapidDataCodingChallenge.MathLibrary;
+﻿namespace RapidDataCodingChallenge.MathLibrary;
 
 using RapidDataCodingChallenge.MathLibrary.Internal;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class MathLib : IMathLib
 {
@@ -47,7 +40,7 @@ public class MathLib : IMathLib
         return _internalMathLib.UnevenFactorial(n);
     }
 
-    private void ThrowIfNegativeOrLargerThanMaximum(int n, int maximumN)
+    private static void ThrowIfNegativeOrLargerThanMaximum(int n, int maximumN)
     {
         if (n < 0)
         {

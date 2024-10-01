@@ -1,6 +1,4 @@
-﻿namespace RapidDataCodingChallenge.MathLibrary.Implementation;
-
-using RapidDataCodingChallenge.MathLibrary.Internal;
+﻿namespace RapidDataCodingChallenge.MathLibrary.Internal;
 
 internal class RecursiveMathLib : IInternalMathLib
 {

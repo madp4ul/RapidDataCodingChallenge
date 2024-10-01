@@ -1,11 +1,6 @@
-﻿namespace RapidDataCodingChallenge.MathLibrary.Implementation;
+﻿namespace RapidDataCodingChallenge.MathLibrary.Internal;
 
-using RapidDataCodingChallenge.MathLibrary.Internal;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 internal class IterativeMathLib : IInternalMathLib
 {
